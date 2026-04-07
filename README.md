@@ -1,15 +1,3 @@
----
-title: Ticket Routing Env
-emoji: 🚀
-colorFrom: blue
-colorTo: green
-sdk: gradio
-sdk_version: "4.36.1"
-python_version: "3.10"
-app_file: app.py
-pinned: false
----
-
 # Customer Support Ticket Routing Environment
 
 A production-grade OpenEnv environment for the Meta OpenEnv Hackathon, simulating real-world customer support ticket classification and routing.
