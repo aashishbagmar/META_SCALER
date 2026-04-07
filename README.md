@@ -89,7 +89,7 @@ The environment provides immediate, granular feedback:
 - **Correct Classification**: +1.0
   - Agent correctly identifies the primary category
   
-- **Partially Correct**: +0.3
+- **Partially Correct**: 0.0
   - Agent chooses a related/plausible category (future enhancement)
   
 - **Incorrect Classification**: 0.0
@@ -124,7 +124,7 @@ pip install -r requirements.txt
 ```bash
 export HF_TOKEN="your_token_here"
 export API_BASE_URL="https://api.openai.com/v1"  # Optional
-export MODEL_NAME="gpt-3.5-turbo"  # Optional
+export MODEL_NAME="Qwen/Qwen2.5-72B-Instruct"  # Optional
 ```
 
 3. **Run the baseline agent:**
@@ -177,13 +177,13 @@ print(f"Final score: {total_reward}")
 
 ## 📈 Baseline Performance
 
-Using GPT-3.5-turbo as baseline agent:
+Using Qwen/Qwen2.5-72B-Instruct as baseline agent:
 
 | Task   | Expected Score | Accuracy |
 |--------|---------------|----------|
 | Easy   | 0.80 - 1.00   | 80-100%  |
-| Medium | 0.60 - 0.85   | 60-85%   |
-| Hard   | 0.50 - 0.75   | 50-75%   |
+| Medium | 0.40 - 0.85   | 60-85%   |
+| Hard   | 0.30 - 0.75   | 50-75%   |
 
 **Total Expected Score**: ~0.70 (70% average accuracy)
 
