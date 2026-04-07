@@ -22,3 +22,5 @@ ENV MODEL_NAME=qwen2.5-72b-instruct
 
 # Run inference script
 CMD ["python", "inference.py"]
+
+CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "7860"]
