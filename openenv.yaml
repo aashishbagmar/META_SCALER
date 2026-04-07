@@ -1,0 +1,54 @@
+name: ticket-routing
+description: Customer Support Ticket Routing Environment - A real-world simulation of support ticket classification where agents must route incoming tickets to the correct department (billing, technical, or general).
+version: 1.0.0
+
+observation_space:
+  type: object
+  properties:
+    ticket_text:
+      type: string
+      description: The text content of the customer support ticket
+    ticket_id:
+      type: integer
+      description: Unique identifier for this ticket
+    step:
+      type: integer
+      description: Current step number in the episode
+    remaining_tickets:
+      type: integer
+      description: Number of tickets remaining to be classified
+
+action_space:
+  type: object
+  properties:
+    category:
+      type: string
+      enum: [billing, technical, general]
+      description: The category to route this ticket to
+
+reward_range:
+  min: 0.0
+  max: 1.0
+
+tasks:
+  - name: easy
+    description: Simple ticket classification with clear-cut categories. Tickets have obvious keywords and straightforward intent. Goal is to correctly classify 5 basic support tickets.
+    difficulty: easy
+    max_steps: 5
+    
+  - name: medium
+    description: Multi-aspect tickets requiring careful analysis. Tickets may mention multiple topics but have one primary category. Goal is to correctly classify 8 moderately complex tickets.
+    difficulty: medium
+    max_steps: 8
+    
+  - name: hard
+    description: Ambiguous tickets requiring nuanced understanding. Tickets may have overlapping concerns or require understanding implicit context. Goal is to correctly classify 10 complex tickets with high accuracy.
+    difficulty: hard
+    max_steps: 10
+
+environment:
+  entry_point: env:TicketRoutingEnv
+  
+grading:
+  metric: accuracy
+  aggregation: mean
